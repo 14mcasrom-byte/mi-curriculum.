@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Currículum de Makarena Castillo Romero">
+  <title>Makarena Castillo Romero | Currículum</title>
+  <style>
+    :root {
+      /* Fondo blanco puro de la página y la columna principal. */
+      --color-fondo: #FFFFFF;
+      /* Azul pastel de la columna lateral. */
+      --color-lateral: #A9CBEB;
+      /* Azul ligeramente más intenso para el degradado lateral. */
+      --color-lateral-final: #8FB6DE;
+      /* Gris carbón para el texto principal y los títulos. */
+      --color-texto: #1F2429;
+      /* Gris medio para fechas, entidades y metadatos. */
+      --color-secundario: #5A626A;
+      /* Azul claro para destacar el nombre. */
+      --color-nombre: #7AB3E0;
+      /* Azul muy claro para el inicio del acento decorativo. */
+      --color-acento-claro: #C7E0F4;
+      /* Azul medio para el final del acento decorativo. */
+      --color-acento: #6CA2CE;
+      /* Blanco para el borde circular de la fotografía. */
+      --color-borde-foto: #FFFFFF;
+      /* Gris tenue para la sombra exterior de la hoja. */
+      --color-sombra: #E2E6EA;
+      /* Fondo neutro alrededor de la hoja en pantalla. */
+      --color-entorno: #F3F5F7;
+      /* Línea divisoria sutil bajo los títulos de la columna lateral. */
+      --color-regla-lateral: rgba(31, 36, 41, 0.28);
+
+      color-scheme: light;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--color-texto);
+      background: var(--color-entorno);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 28px 16px;
+      background: var(--color-entorno);
+    }
+
+    .hoja {
+      display: grid;
+      grid-template-columns: 34% 66%;
+      width: min(100%, 900px);
+      min-height: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--color-fondo);
+      border-radius: 8px;
+      box-shadow: 0 8px 28px var(--color-sombra);
+    }
+
+    .lateral {
+      position: relative;
+      padding: 34px 25px 32px;
+      background: linear-gradient(160deg, var(--color-lateral) 0%, var(--color-lateral) 68%, var(--color-lateral-final) 100%);
+    }
+
+    .lateral::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--color-fondo);
+      clip-path: polygon(100% 0, 100% 100%, 0 0);
+      content: "";
+    }
+
+    .foto {
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 30px;
+      border: 5px solid var(--color-borde-foto);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .contenido {
+      min-width: 0;
+      padding: 50px 48px 42px;
+    }
+
+    .nombre {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .nombre span {
+      display: block;
+    }
+
+    .nombre .nombre-destacado {
+      color: var(--color-nombre);
+    }
+
+    .nombre .apellidos {
+      margin-top: 5px;
+      color: var(--color-texto);
+    }
+
+    .acento {
+      width: 100%;
+      height: 9px;
+      margin: 24px 0 30px;
+      background: linear-gradient(90deg, var(--color-acento-claro), var(--color-acento));
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%);
+    }
+
+    .seccion {
+      margin-top: 25px;
+    }
+
+    .contenido .seccion {
+      margin-top: 27px;
+    }
+
+    .titulo-seccion {
+      margin: 0 0 11px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    .lateral .titulo-seccion {
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--color-regla-lateral);
+    }
+
+    p,
+    li,
+    address {
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    address {
+      font-style: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .lista {
+      margin: 0;
+      padding-left: 17px;
+    }
+
+    .lista li + li {
+      margin-top: 5px;
+    }
+
+    .contacto p + p {
+      margin-top: 7px;
+    }
+
+    .item-formacion + .item-formacion,
+    .puesto + .puesto,
+    .idioma + .idioma {
+      margin-top: 15px;
+    }
+
+    .item-formacion strong,
+    .puesto strong,
+    .idioma strong {
+      display: block;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .puesto h3 {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .detalle,
+    .fecha {
+      display: block;
+      margin-top: 2px;
+      color: var(--color-secundario);
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .puesto .lista {
+      margin-top: 7px;
+    }
+
+    .puesto .lista li + li {
+      margin-top: 3px;
+    }
+
+    .resumen {
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .voluntariado strong {
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 0;
+      }
+
+      .hoja {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+        border-radius: 0;
+      }
+
+      .lateral {
+        padding: 30px 24px;
+      }
+
+      .lateral::after {
+        width: 30px;
+        height: 30px;
+      }
+
+      .foto {
+        width: 132px;
+        height: 132px;
+        margin-bottom: 24px;
+      }
+
+      .lateral .seccion {
+        margin-top: 22px;
+      }
+
+      .contenido {
+        padding: 36px 24px 42px;
+      }
+
+      .nombre {
+        font-size: clamp(2.15rem, 10vw, 2.8rem);
+      }
+
+      .acento {
+        margin: 20px 0 25px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        background: var(--color-fondo);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      body {
+        padding: 0;
+        background: var(--color-fondo);
+      }
+
+      .hoja {
+        width: 210mm;
+        min-height: 297mm;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .lateral {
+        padding: 30px 22px;
+      }
+
+      .contenido {
+        padding: 43px 38px 35px;
+      }
+
+      p,
+      li,
+      address {
+        font-size: 8.5pt;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="hoja">
+    <aside class="lateral">
+      <img class="foto" src="imagenes/foto.jpg" alt="Fotografía de Makarena Castillo Romero" onerror="this.onerror=null;this.src='imagenes/FOTO%20CV.png'">
+
+      <!-- ===== SECCIÓN:  CONTACTO ===== -->
+      <section class="seccion contacto" aria-labelledby="titulo-contacto">
+        <h2 class="titulo-seccion" id="titulo-contacto">Contacto</h2>
+        <address>
+          <p><a href="mailto:castilloromero.makarena@gmail.com">castilloromero.makarena@gmail.com</a></p>
+        </address>
+      </section>
+      <!-- =====FIN:  CONTACTO ===== -->
+
+      <!-- ===== SECCIÓN:  COMPETENCIAS ===== -->
+      <section class="seccion" aria-labelledby="titulo-competencias">
+        <h2 class="titulo-seccion" id="titulo-competencias">Competencias</h2>
+        <ul class="lista">
+          <li>Responsabilidad</li>
+          <li>Creatividad</li>
+          <li>Alta capacidad de adaptación</li>
+          <li>Atención al público y al cliente</li>
+          <li>Trabajo en equipo, también bajo presión</li>
+          <li>Organización y dinamización de actividades lúdicas y educativas para menores</li>
+        </ul>
+      </section>
+      <!-- =====FIN:  COMPETENCIAS ===== -->
+
+      <!-- ===== SECCIÓN:  FORMACIÓN ===== -->
+      <section class="seccion" aria-labelledby="titulo-formacion">
+        <h2 class="titulo-seccion" id="titulo-formacion">Formación</h2>
+        <div class="item-formacion">
+          <strong>Grado en Trabajo Social</strong>
+          <span class="fecha">2023–Actualidad</span>
+          <span class="detalle">UCA · Campus Universitario de Jerez</span>
+        </div>
+        <div class="item-formacion">
+          <strong>Curso de Monitorado de Ocio y Tiempo Libre</strong>
+          <span class="fecha">2025</span>
+          <span class="detalle">Cruz Roja Española</span>
+        </div>
+        <div class="item-formacion">
+          <strong>Bachillerato CCSS</strong>
+          <span class="fecha">2021–2023</span>
+          <span class="detalle">IES Pablo Ruiz Picasso (Chiclana de la Fra)</span>
+        </div>
+      </section>
+      <!-- =====FIN:  FORMACIÓN ===== -->
+
+      <!-- ===== SECCIÓN:  IDIOMAS ===== -->
+      <section class="seccion" aria-labelledby="titulo-idiomas">
+        <h2 class="titulo-seccion" id="titulo-idiomas">Idiomas</h2>
+        <div class="idioma">
+          <strong>Francés · B2</strong>
+          <span class="detalle">DELF · 2022 · Chiclana de la frontera</span>
+        </div>
+        <div class="idioma">
+          <strong>Francés · B1</strong>
+          <span class="detalle">DELF · 2021 · Chiclana de la frontera</span>
+        </div>
+        <div class="idioma">
+          <strong>Inglés · B2</strong>
+          <span class="detalle">Cambridge Certificate · Junio 2024 · San Fernando</span>
+        </div>
+        <div class="idioma">
+          <strong>Inglés · B1</strong>
+          <span class="detalle">Cambridge Certificate · Junio 2022 · Jerez de la frontera</span>
+        </div>
+      </section>
+      <!-- =====FIN:  IDIOMAS ===== -->
+    </aside>
+
+    <div class="contenido">
+      <!-- ===== SECCIÓN:  ENCABEZADO ===== -->
+      <header>
+        <h1 class="nombre">
+          <span class="nombre-destacado">Makarena</span>
+          <span class="apellidos">Castillo Romero</span>
+        </h1>
+        <div class="acento" aria-hidden="true"></div>
+      </header>
+      <!-- =====FIN:  ENCABEZADO ===== -->
+
+      <!-- ===== SECCIÓN:  RESUMEN PROFESIONAL ===== -->
+      <section class="seccion" aria-labelledby="titulo-resumen">
+        <h2 class="titulo-seccion" id="titulo-resumen">Resumen profesional</h2>
+        <p class="resumen">Soy estudiante de Trabajo Social en la Universidad de Cádiz con experiencia en actividades con niños y atención al público. Responsable, creativa y con alta capacidad de adaptación. Bilingüe en Inglés y Francés, en constante formación y crecimiento profesional y personal.</p>
+      </section>
+      <!-- =====FIN:  RESUMEN PROFESIONAL ===== -->
+
+      <!-- ===== SECCIÓN:  EXPERIENCIA LABORAL ===== -->
+      <section class="seccion" aria-labelledby="titulo-experiencia">
+        <h2 class="titulo-seccion" id="titulo-experiencia">Experiencia laboral</h2>
+
+        <article class="puesto">
+          <h3><strong>Monitora de Campamento de Verano</strong></h3>
+          <span class="detalle">Campamento Diocesano (Quercus) · Julio 2021</span>
+          <ul class="lista">
+            <li>Organización y dinamización de actividades para niños de 4.º a 6.º de primaria.</li>
+            <li>Fomento del trabajo en equipo, la creatividad y el respeto entre menores.</li>
+            <li>Coordinación con otros monitores para el correcto desarrollo de la actividad.</li>
+          </ul>
+        </article>
+
+        <article class="puesto">
+          <h3><strong>Monitora de Apoyo / Dinamizadora</strong></h3>
+          <span class="detalle">Centro Experimental Arqueológico, Era Cultura · Temporada 2021–Temporada 2025</span>
+          <ul class="lista">
+            <li>Actividades lúdicas y educativas con niños de primer y segundo ciclo de primaria.</li>
+            <li>Desarrollo de juegos adaptados a las edades y necesidades del grupo.</li>
+            <li>Apoyo en talleres y eventos.</li>
+          </ul>
+        </article>
+
+        <article class="puesto">
+          <h3><strong>Camarera</strong></h3>
+          <span class="detalle">El Escondite de Inga (Temporada 2023 y 2024) y La Rúcula Gastrobar (Octubre 2024 / Agosto 2025)</span>
+          <ul class="lista">
+            <li>Atención al cliente y servicio en sala y terraza.</li>
+            <li>Trabajo en equipo bajo presión en entornos dinámicos.</li>
+          </ul>
+        </article>
+      </section>
+      <!-- =====FIN:  EXPERIENCIA LABORAL ===== -->
+
+      <!-- ===== SECCIÓN:  VOLUNTARIADO ===== -->
+      <section class="seccion voluntariado" aria-labelledby="titulo-voluntariado">
+        <h2 class="titulo-seccion" id="titulo-voluntariado">Voluntariado</h2>
+        <p><strong>Cruz Roja</strong> — Proyecto Pineo</p>
+        <span class="detalle">Durante 2 años · 2025/2026 · Cruz Roja Chiclana</span>
+      </section>
+      <!-- =====FIN:  VOLUNTARIADO ===== -->
+    </div>
+  </main>
+</body>
+</html>
